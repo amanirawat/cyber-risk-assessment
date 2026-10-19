@@ -1,0 +1,638 @@
+{
+  "version": "1.0",
+  "framework": "NIST Cybersecurity Framework (CSF) 2.0",
+  "maturity_scale": {
+    "3": "Strong - control fully in place",
+    "2": "Partial - in place with gaps",
+    "1": "Weak - informal or inconsistent",
+    "0": "Missing - not in place"
+  },
+  "areas": [
+    {
+      "id": "access_control",
+      "name": "Access Control",
+      "csf": "PR.AA"
+    },
+    {
+      "id": "backups",
+      "name": "Backups & Recovery",
+      "csf": "PR.DS / RC.RP"
+    },
+    {
+      "id": "patching",
+      "name": "Patching & Vulnerability Management",
+      "csf": "PR.PS / ID.RA"
+    },
+    {
+      "id": "training",
+      "name": "Security Awareness Training",
+      "csf": "PR.AT"
+    },
+    {
+      "id": "incident_response",
+      "name": "Incident Response",
+      "csf": "RS.MA"
+    },
+    {
+      "id": "data_protection",
+      "name": "Data Protection",
+      "csf": "PR.DS"
+    }
+  ],
+  "questions": [
+    {
+      "id": "AC1",
+      "name": "Multi-factor authentication",
+      "area": "access_control",
+      "csf": "PR.AA",
+      "impact": 5,
+      "sensitive_data_bump": false,
+      "text": "Is multi-factor authentication (MFA) required for email, remote access, and admin accounts?",
+      "options": [
+        {
+          "maturity": 3,
+          "label": "Yes, for all users and all of these systems"
+        },
+        {
+          "maturity": 2,
+          "label": "For admins and remote access, but not all users"
+        },
+        {
+          "maturity": 1,
+          "label": "Only on a few accounts or optional"
+        },
+        {
+          "maturity": 0,
+          "label": "No MFA anywhere"
+        }
+      ],
+      "remediation": {
+        "action": "Turn on MFA for every user's email and remote access, starting with admin accounts.",
+        "why": "Stolen passwords are the most common way attackers get in. MFA stops most of those attempts even when the password is known.",
+        "effort": "low",
+        "cost": "$"
+      }
+    },
+    {
+      "id": "AC2",
+      "name": "Admin rights",
+      "area": "access_control",
+      "csf": "PR.AA",
+      "impact": 4,
+      "sensitive_data_bump": false,
+      "text": "Do everyday user accounts have administrator rights on their computers?",
+      "options": [
+        {
+          "maturity": 3,
+          "label": "No, admin rights are limited to IT staff"
+        },
+        {
+          "maturity": 2,
+          "label": "A few users have them for a documented reason"
+        },
+        {
+          "maturity": 1,
+          "label": "Many users have admin rights"
+        },
+        {
+          "maturity": 0,
+          "label": "Everyone is an administrator"
+        }
+      ],
+      "remediation": {
+        "action": "Remove local admin rights from everyday accounts and give IT separate admin logins.",
+        "why": "When a user with admin rights clicks a malicious link, the attacker gets full control of the computer.",
+        "effort": "medium",
+        "cost": "$"
+      }
+    },
+    {
+      "id": "AC3",
+      "name": "Account offboarding",
+      "area": "access_control",
+      "csf": "PR.AA",
+      "impact": 4,
+      "sensitive_data_bump": true,
+      "text": "When an employee leaves, how quickly are their accounts disabled?",
+      "options": [
+        {
+          "maturity": 3,
+          "label": "Same day, using a written offboarding checklist"
+        },
+        {
+          "maturity": 2,
+          "label": "Within a week"
+        },
+        {
+          "maturity": 1,
+          "label": "Eventually, when someone remembers"
+        },
+        {
+          "maturity": 0,
+          "label": "Accounts are rarely or never disabled"
+        }
+      ],
+      "remediation": {
+        "action": "Create an offboarding checklist that disables all accounts on the employee's last day, and review active accounts quarterly.",
+        "why": "Former employees' accounts are an open door. Nobody notices when they're misused.",
+        "effort": "low",
+        "cost": "$"
+      }
+    },
+    {
+      "id": "AC4",
+      "name": "Password management",
+      "area": "access_control",
+      "csf": "PR.AA",
+      "impact": 3,
+      "sensitive_data_bump": false,
+      "text": "Do staff use unique passwords stored in a password manager?",
+      "options": [
+        {
+          "maturity": 3,
+          "label": "Yes, a company password manager is provided and used"
+        },
+        {
+          "maturity": 2,
+          "label": "Encouraged, but not provided or enforced"
+        },
+        {
+          "maturity": 1,
+          "label": "Passwords are often shared or reused"
+        },
+        {
+          "maturity": 0,
+          "label": "Shared passwords are written down or kept in spreadsheets"
+        }
+      ],
+      "remediation": {
+        "action": "Roll out a company password manager and require unique passwords for every system.",
+        "why": "Reused or shared passwords mean one breach anywhere unlocks accounts everywhere.",
+        "effort": "low",
+        "cost": "$"
+      }
+    },
+    {
+      "id": "BK1",
+      "name": "Backup frequency",
+      "area": "backups",
+      "csf": "PR.DS",
+      "impact": 5,
+      "sensitive_data_bump": false,
+      "text": "How often is critical business data backed up?",
+      "options": [
+        {
+          "maturity": 3,
+          "label": "Automatically, at least daily"
+        },
+        {
+          "maturity": 2,
+          "label": "Weekly"
+        },
+        {
+          "maturity": 1,
+          "label": "Monthly or manually when someone remembers"
+        },
+        {
+          "maturity": 0,
+          "label": "No regular backups"
+        }
+      ],
+      "remediation": {
+        "action": "Set up automatic daily backups of all critical systems and shared files.",
+        "why": "Without recent backups, ransomware or a failed drive can mean permanent loss of records and days of downtime.",
+        "effort": "medium",
+        "cost": "$$"
+      }
+    },
+    {
+      "id": "BK2",
+      "name": "Offline / immutable backups",
+      "area": "backups",
+      "csf": "PR.DS",
+      "impact": 5,
+      "sensitive_data_bump": false,
+      "text": "Is at least one backup copy kept offline or immutable (can't be changed or deleted)?",
+      "options": [
+        {
+          "maturity": 3,
+          "label": "Yes, an offline or immutable copy is kept separate from the network"
+        },
+        {
+          "maturity": 2,
+          "label": "Cloud backup only, with version history"
+        },
+        {
+          "maturity": 1,
+          "label": "Backups sit on the same network as the data"
+        },
+        {
+          "maturity": 0,
+          "label": "No separate backup copy"
+        }
+      ],
+      "remediation": {
+        "action": "Keep at least one backup copy offline or in immutable cloud storage that ordinary accounts can't delete.",
+        "why": "Ransomware deliberately looks for connected backups and encrypts them too. A separate copy is what makes recovery possible.",
+        "effort": "medium",
+        "cost": "$$"
+      }
+    },
+    {
+      "id": "BK3",
+      "name": "Restore testing",
+      "area": "backups",
+      "csf": "RC.RP",
+      "impact": 4,
+      "sensitive_data_bump": false,
+      "text": "Has restoring from backup been tested?",
+      "options": [
+        {
+          "maturity": 3,
+          "label": "Yes, a full restore is tested at least twice a year"
+        },
+        {
+          "maturity": 2,
+          "label": "Tested once in the last year"
+        },
+        {
+          "maturity": 1,
+          "label": "Never formally tested"
+        },
+        {
+          "maturity": 0,
+          "label": "We don't know if restores would work"
+        }
+      ],
+      "remediation": {
+        "action": "Run a test restore of one critical system every six months and record how long it takes.",
+        "why": "Many businesses only discover their backups are broken in the middle of an emergency.",
+        "effort": "low",
+        "cost": "$"
+      }
+    },
+    {
+      "id": "PT1",
+      "name": "Software updates",
+      "area": "patching",
+      "csf": "PR.PS",
+      "impact": 4,
+      "sensitive_data_bump": false,
+      "text": "How are operating system and software updates installed?",
+      "options": [
+        {
+          "maturity": 3,
+          "label": "Automatically, and critical updates within 14 days"
+        },
+        {
+          "maturity": 2,
+          "label": "Monthly, by IT"
+        },
+        {
+          "maturity": 1,
+          "label": "Users install updates when they choose to"
+        },
+        {
+          "maturity": 0,
+          "label": "Updates aren't managed"
+        }
+      ],
+      "remediation": {
+        "action": "Turn on automatic updates for all computers and apply critical security patches within 14 days.",
+        "why": "Attackers exploit known vulnerabilities within days of a patch being released. Unpatched systems are the easiest targets.",
+        "effort": "low",
+        "cost": "$"
+      }
+    },
+    {
+      "id": "PT2",
+      "name": "End-of-life software",
+      "area": "patching",
+      "csf": "ID.RA",
+      "impact": 4,
+      "sensitive_data_bump": false,
+      "text": "Is any unsupported (end-of-life) software or operating system still in use?",
+      "options": [
+        {
+          "maturity": 3,
+          "label": "No, everything is still supported by its vendor"
+        },
+        {
+          "maturity": 2,
+          "label": "One or two systems, with a replacement planned"
+        },
+        {
+          "maturity": 1,
+          "label": "Several systems, with no replacement plan"
+        },
+        {
+          "maturity": 0,
+          "label": "We don't know"
+        }
+      ],
+      "remediation": {
+        "action": "Identify all end-of-life systems and budget to replace or isolate them within the next year.",
+        "why": "Unsupported software no longer receives security fixes, so every new vulnerability stays open permanently.",
+        "effort": "high",
+        "cost": "$$$"
+      }
+    },
+    {
+      "id": "PT3",
+      "name": "Asset inventory",
+      "area": "patching",
+      "csf": "ID.AM",
+      "impact": 3,
+      "sensitive_data_bump": false,
+      "text": "Is there an up-to-date inventory of company devices and software?",
+      "options": [
+        {
+          "maturity": 3,
+          "label": "Yes, complete and reviewed at least quarterly"
+        },
+        {
+          "maturity": 2,
+          "label": "Partial or updated once a year"
+        },
+        {
+          "maturity": 1,
+          "label": "Outdated list"
+        },
+        {
+          "maturity": 0,
+          "label": "No inventory"
+        }
+      ],
+      "remediation": {
+        "action": "Build a simple inventory of every device and key application, with its owner, and review it quarterly.",
+        "why": "You can't patch, back up, or protect what you don't know you have.",
+        "effort": "medium",
+        "cost": "$"
+      }
+    },
+    {
+      "id": "PT4",
+      "name": "Endpoint protection",
+      "area": "patching",
+      "csf": "DE.CM",
+      "impact": 4,
+      "sensitive_data_bump": false,
+      "text": "Do all computers run centrally managed antivirus or endpoint protection?",
+      "options": [
+        {
+          "maturity": 3,
+          "label": "Yes, managed and monitored on every device"
+        },
+        {
+          "maturity": 2,
+          "label": "Installed everywhere, but not monitored"
+        },
+        {
+          "maturity": 1,
+          "label": "Only on some devices"
+        },
+        {
+          "maturity": 0,
+          "label": "No endpoint protection"
+        }
+      ],
+      "remediation": {
+        "action": "Deploy managed endpoint protection on every device, with alerts sent to IT or your service provider.",
+        "why": "Endpoint protection catches and blocks most common malware before it spreads.",
+        "effort": "medium",
+        "cost": "$$"
+      }
+    },
+    {
+      "id": "TR1",
+      "name": "Security training",
+      "area": "training",
+      "csf": "PR.AT",
+      "impact": 4,
+      "sensitive_data_bump": false,
+      "text": "How often do employees receive security awareness training?",
+      "options": [
+        {
+          "maturity": 3,
+          "label": "At onboarding and at least once a year"
+        },
+        {
+          "maturity": 2,
+          "label": "At onboarding only"
+        },
+        {
+          "maturity": 1,
+          "label": "Occasionally, with no schedule"
+        },
+        {
+          "maturity": 0,
+          "label": "Never"
+        }
+      ],
+      "remediation": {
+        "action": "Require short security training for every new hire and an annual refresher for all staff.",
+        "why": "Most breaches start with a person being tricked. Trained staff spot and report attacks earlier.",
+        "effort": "low",
+        "cost": "$"
+      }
+    },
+    {
+      "id": "TR2",
+      "name": "Phishing simulations",
+      "area": "training",
+      "csf": "PR.AT",
+      "impact": 3,
+      "sensitive_data_bump": false,
+      "text": "Does the company run phishing simulation exercises?",
+      "options": [
+        {
+          "maturity": 3,
+          "label": "Yes, at least quarterly, with results tracked"
+        },
+        {
+          "maturity": 2,
+          "label": "Once or twice a year"
+        },
+        {
+          "maturity": 1,
+          "label": "Tried once"
+        },
+        {
+          "maturity": 0,
+          "label": "Never"
+        }
+      ],
+      "remediation": {
+        "action": "Run quarterly phishing simulations and track the click and report rates over time.",
+        "why": "Practice makes phishing recognition a habit, and the results show where extra training is needed.",
+        "effort": "low",
+        "cost": "$"
+      }
+    },
+    {
+      "id": "TR3",
+      "name": "Incident reporting channel",
+      "area": "training",
+      "csf": "PR.AT",
+      "impact": 3,
+      "sensitive_data_bump": false,
+      "text": "Do employees know exactly how to report a suspicious email or security issue?",
+      "options": [
+        {
+          "maturity": 3,
+          "label": "Yes, there's a report button or address and staff use it"
+        },
+        {
+          "maturity": 2,
+          "label": "There's a process, but not everyone knows it"
+        },
+        {
+          "maturity": 1,
+          "label": "People tell whoever they happen to think of"
+        },
+        {
+          "maturity": 0,
+          "label": "No reporting process"
+        }
+      ],
+      "remediation": {
+        "action": "Set up one clear reporting channel, such as a report-phishing button or a security email address, and announce it to all staff.",
+        "why": "Fast reporting shortens how long an attacker has before they're stopped.",
+        "effort": "low",
+        "cost": "$"
+      }
+    },
+    {
+      "id": "IR1",
+      "name": "Incident response plan",
+      "area": "incident_response",
+      "csf": "RS.MA",
+      "impact": 4,
+      "sensitive_data_bump": false,
+      "text": "Is there a written incident response plan?",
+      "options": [
+        {
+          "maturity": 3,
+          "label": "Yes, and it's been practiced in the last year"
+        },
+        {
+          "maturity": 2,
+          "label": "Written, but never practiced"
+        },
+        {
+          "maturity": 1,
+          "label": "Informal: people would figure it out"
+        },
+        {
+          "maturity": 0,
+          "label": "No plan"
+        }
+      ],
+      "remediation": {
+        "action": "Write a two-page incident response plan covering who decides, who to call, and first steps, then walk through it once a year.",
+        "why": "Decisions made calmly in advance are faster and better than decisions made mid-crisis.",
+        "effort": "medium",
+        "cost": "$"
+      }
+    },
+    {
+      "id": "IR2",
+      "name": "Emergency contacts",
+      "area": "incident_response",
+      "csf": "RS.MA",
+      "impact": 3,
+      "sensitive_data_bump": true,
+      "text": "Are emergency contacts documented (IT provider, cyber insurer, legal counsel)?",
+      "options": [
+        {
+          "maturity": 3,
+          "label": "Yes, documented and stored where they can be reached offline"
+        },
+        {
+          "maturity": 2,
+          "label": "Partly documented"
+        },
+        {
+          "maturity": 1,
+          "label": "Known only by one or two people"
+        },
+        {
+          "maturity": 0,
+          "label": "Not documented"
+        }
+      ],
+      "remediation": {
+        "action": "Keep a printed and offline list of emergency contacts: IT support, cyber insurer, legal counsel, and key vendors.",
+        "why": "During an attack, email and shared drives may be unavailable exactly when the contacts are needed.",
+        "effort": "low",
+        "cost": "$"
+      }
+    },
+    {
+      "id": "DP1",
+      "name": "Device encryption",
+      "area": "data_protection",
+      "csf": "PR.DS",
+      "impact": 4,
+      "sensitive_data_bump": true,
+      "text": "Are laptops and mobile devices encrypted?",
+      "options": [
+        {
+          "maturity": 3,
+          "label": "Yes, all devices, with encryption enforced"
+        },
+        {
+          "maturity": 2,
+          "label": "Most devices"
+        },
+        {
+          "maturity": 1,
+          "label": "Some devices"
+        },
+        {
+          "maturity": 0,
+          "label": "None, or we don't know"
+        }
+      ],
+      "remediation": {
+        "action": "Turn on built-in full-disk encryption (BitLocker or FileVault) on every laptop and enforce it centrally.",
+        "why": "A lost or stolen laptop without encryption is a data breach. With encryption, it's just a lost device.",
+        "effort": "low",
+        "cost": "$"
+      }
+    },
+    {
+      "id": "DP2",
+      "name": "Sensitive data access",
+      "area": "data_protection",
+      "csf": "PR.DS",
+      "impact": 4,
+      "sensitive_data_bump": true,
+      "text": "Is access to sensitive data (customer, financial, HR) limited to the people who need it?",
+      "options": [
+        {
+          "maturity": 3,
+          "label": "Yes, role-based access that is reviewed regularly"
+        },
+        {
+          "maturity": 2,
+          "label": "Mostly restricted, but rarely reviewed"
+        },
+        {
+          "maturity": 1,
+          "label": "Loosely restricted, so many people can access it"
+        },
+        {
+          "maturity": 0,
+          "label": "Everyone can access everything"
+        }
+      ],
+      "remediation": {
+        "action": "Restrict sensitive folders and systems to the roles that need them, and review who has access twice a year.",
+        "why": "Limiting access reduces how much data one compromised account or careless mistake can expose.",
+        "effort": "medium",
+        "cost": "$"
+      }
+    }
+  ]
+}

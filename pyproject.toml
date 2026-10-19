@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "riskassess"
+version = "0.1.0"
+description = "AI Cyber Risk Assessment Assistant: scored risk profiles and prioritized remediation plans mapped to NIST CSF 2.0"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Amani Rawat" }]
+dependencies = []
+
+[project.optional-dependencies]
+ui = ["streamlit>=1.37"]
+llm = ["anthropic>=0.40"]
+dev = ["pytest>=7"]
+
+[project.scripts]
+riskassess = "riskassess.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

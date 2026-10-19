@@ -1,0 +1,65 @@
+{
+  "simulations": 1000,
+  "checks": {
+    "monotonicity": {
+      "passed": 13435,
+      "total": 13435,
+      "pct": 100.0
+    },
+    "bounds": {
+      "passed": 1000,
+      "total": 1000,
+      "pct": 100.0
+    },
+    "plan_coverage": {
+      "passed": 1000,
+      "total": 1000,
+      "pct": 100.0
+    },
+    "plan_payoff": {
+      "passed": 1000,
+      "total": 1000,
+      "pct": 100.0
+    }
+  },
+  "profile_ordering": {
+    "passed": true,
+    "risk_index": {
+      "larkspur-family-dental": 85.1,
+      "bramblewood-logistics": 36.8,
+      "cedar-finch-accounting": 6.8
+    }
+  },
+  "risk_index_distribution": {
+    "min": 17.5,
+    "median": 49.7,
+    "max": 78.4,
+    "stdev": 9.7
+  },
+  "area_drivers": [
+    [
+      "Access Control",
+      0.487
+    ],
+    [
+      "Backups & Recovery",
+      0.452
+    ],
+    [
+      "Patching & Vulnerability Management",
+      0.444
+    ],
+    [
+      "Data Protection",
+      0.364
+    ],
+    [
+      "Security Awareness Training",
+      0.335
+    ],
+    [
+      "Incident Response",
+      0.326
+    ]
+  ]
+}

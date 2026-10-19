@@ -1,0 +1,17 @@
+{
+  "company": {
+    "name": "Larkspur Family Dental",
+    "industry": "Healthcare (dental practice)",
+    "employees": 14,
+    "handles_sensitive_data": true,
+    "description": "Fictional two-location dental practice. Stores patient records and payment information; IT is handled informally by the office manager."
+  },
+  "answers": {
+    "AC1": 1, "AC2": 0, "AC3": 1, "AC4": 0,
+    "BK1": 1, "BK2": 1, "BK3": 0,
+    "PT1": 1, "PT2": 1, "PT3": 0, "PT4": 1,
+    "TR1": 0, "TR2": 0, "TR3": 1,
+    "IR1": 0, "IR2": 1,
+    "DP1": 1, "DP2": 0
+  }
+}

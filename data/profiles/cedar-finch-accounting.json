@@ -1,0 +1,17 @@
+{
+  "company": {
+    "name": "Cedar & Finch Accounting",
+    "industry": "Professional services (accounting)",
+    "employees": 22,
+    "handles_sensitive_data": true,
+    "description": "Fictional accounting firm that handles client tax and financial records. Works with a managed security provider and has most controls in place."
+  },
+  "answers": {
+    "AC1": 3, "AC2": 3, "AC3": 3, "AC4": 3,
+    "BK1": 3, "BK2": 3, "BK3": 2,
+    "PT1": 3, "PT2": 2, "PT3": 3, "PT4": 3,
+    "TR1": 3, "TR2": 2, "TR3": 3,
+    "IR1": 2, "IR2": 3,
+    "DP1": 3, "DP2": 2
+  }
+}

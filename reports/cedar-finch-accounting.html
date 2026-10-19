@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cyber Risk Assessment - Cedar &amp; Finch Accounting</title>
+<style>
+:root { --ink:#101828; --muted:#475467; --line:#eaecf0; --accent:#1f3a5f; --bg:#ffffff; }
+* { box-sizing:border-box; }
+body { font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color:var(--ink); background:var(--bg);
+       max-width: 960px; margin: 0 auto; padding: 32px 16px 64px; line-height:1.5; }
+h1 { color:var(--accent); margin:0 0 4px; font-size:28px; }
+h2 { color:var(--accent); border-bottom:2px solid var(--line); padding-bottom:6px; margin-top:36px; font-size:20px; }
+h3 { font-size:16px; margin:24px 0 8px; }
+.sub { color:var(--muted); margin:0; }
+.note { font-size:13px; color:var(--muted); background:#f9fafb; border:1px solid var(--line); padding:6px 10px; border-radius:6px; display:inline-block; margin-top:10px; }
+.summary { background:#f5f8fc; border-left:4px solid var(--accent); padding:14px 18px; border-radius:4px; }
+.stats { display:flex; flex-wrap:wrap; gap:12px; margin-top:16px; }
+.stat { flex:1 1 120px; border:1px solid var(--line); border-radius:8px; padding:12px; text-align:center; color:var(--muted); font-size:13px; }
+.stat .num { font-size:26px; font-weight:700; color:var(--ink); }
+.bar-row { margin:10px 0; }
+.bar-label { font-size:14px; margin-bottom:3px; }
+.bar-line { display:flex; align-items:center; gap:10px; }
+.bar-track { flex:1; display:block; height:14px; background:#f2f4f7; border-radius:7px; overflow:hidden; }
+.bar-fill { display:block; height:100%; background:var(--accent); }
+.bar-val { flex:0 0 52px; text-align:right; font-variant-numeric:tabular-nums; font-size:14px; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th, td { border-bottom:1px solid var(--line); padding:8px; text-align:left; vertical-align:top; }
+th { color:var(--muted); font-weight:600; }
+.heat { width:auto; } .heat td, .heat th { width:48px; height:40px; text-align:center; border:1px solid #fff; }
+.axis { font-size:12px; color:var(--muted); }
+.pill { color:#fff; border-radius:10px; padding:2px 8px; font-size:12px; font-weight:600; }
+.why { color:var(--muted); font-size:13px; }
+.delta { font-weight:400; color:var(--muted); font-size:13px; margin-left:8px; }
+.grid { display:grid; grid-template-columns: 1fr 1fr; gap:24px; }
+@media (max-width: 720px) { .grid { grid-template-columns:1fr; } }
+</style></head><body>
+<h1>Cyber Risk Assessment</h1>
+<p class="sub"><strong>Cedar &amp; Finch Accounting</strong> · Professional services (accounting) · 22 employees · 2026-10-19</p>
+<span class="note">Fictional organization, created to demonstrate the assessment tool</span>
+
+<h2>Executive summary</h2>
+<div class="summary">Cedar &amp; Finch Accounting is at low risk. Overall security maturity is 91% and the risk index is 6.8 out of 100. 5 of 18 controls reviewed have gaps, none of them rated High or Critical. The weakest areas are Incident Response (83.3%) and Data Protection (83.3%). The remaining gaps are improvements to schedule over the next quarter rather than urgent fixes. Completing the full plan brings the risk index down to 0.</div>
+<div class="stats">
+  <div class="stat"><div class="num">91%</div><div>Overall maturity</div></div>
+  <div class="stat"><div class="num">6.8</div><div>Risk index (0-100)</div></div>
+  <div class='stat'><div class='num' style='color:#b42318'>0</div><div>Critical</div></div><div class='stat'><div class='num' style='color:#dc6803'>0</div><div>High</div></div><div class='stat'><div class='num' style='color:#ca8504'>5</div><div>Medium</div></div><div class='stat'><div class='num' style='color:#079455'>13</div><div>Low</div></div>
+</div>
+
+<div class="grid">
+  <div><h2>Maturity by area</h2><div class='bar-row'><div class='bar-label'>Incident Response</div><div class='bar-line'><span class='bar-track'><span class='bar-fill' style='width:83.3%'></span></span><span class='bar-val'>83.3%</span></div></div><div class='bar-row'><div class='bar-label'>Data Protection</div><div class='bar-line'><span class='bar-track'><span class='bar-fill' style='width:83.3%'></span></span><span class='bar-val'>83.3%</span></div></div><div class='bar-row'><div class='bar-label'>Backups &amp; Recovery</div><div class='bar-line'><span class='bar-track'><span class='bar-fill' style='width:88.9%'></span></span><span class='bar-val'>88.9%</span></div></div><div class='bar-row'><div class='bar-label'>Security Awareness Training</div><div class='bar-line'><span class='bar-track'><span class='bar-fill' style='width:88.9%'></span></span><span class='bar-val'>88.9%</span></div></div><div class='bar-row'><div class='bar-label'>Patching &amp; Vulnerability Management</div><div class='bar-line'><span class='bar-track'><span class='bar-fill' style='width:91.7%'></span></span><span class='bar-val'>91.7%</span></div></div><div class='bar-row'><div class='bar-label'>Access Control</div><div class='bar-line'><span class='bar-track'><span class='bar-fill' style='width:100.0%'></span></span><span class='bar-val'>100%</span></div></div></div>
+  <div><h2>Risk heatmap</h2><table class='heat'><tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr><tr><th>5</th><td style='background:#d1fadf'></td><td style='background:#fef0c7'></td><td style='background:#fec84b'></td><td style='background:#fda29b'></td><td style='background:#fda29b'></td></tr><tr><th>4</th><td style='background:#d1fadf'></td><td style='background:#fef0c7'></td><td style='background:#fec84b'></td><td style='background:#fec84b'></td><td style='background:#fda29b'></td></tr><tr><th>3</th><td style='background:#d1fadf'></td><td style='background:#fef0c7'></td><td style='background:#fef0c7'></td><td style='background:#fec84b'></td><td style='background:#fec84b'></td></tr><tr><th>2</th><td style='background:#d1fadf'></td><td style='background:#d1fadf'></td><td style='background:#fef0c7'>1</td><td style='background:#fef0c7'>3</td><td style='background:#fef0c7'>1</td></tr><tr><th>1</th><td style='background:#d1fadf'></td><td style='background:#d1fadf'></td><td style='background:#d1fadf'>3</td><td style='background:#d1fadf'>5</td><td style='background:#d1fadf'>5</td></tr></table><p class='axis'>Rows: likelihood (5 = most likely) · Columns: impact (5 = most severe) · Cells: number of controls</p></div>
+</div>
+
+<h2>Top risks</h2>
+<table><tr><th>Control</th><th>Current state</th><th>Risk</th><th>Rating</th></tr><tr><td><strong>Sensitive data access</strong><br><span class='why'>Data Protection</span></td><td>Mostly restricted, but rarely reviewed</td><td>10</td><td><span class='pill' style='background:#ca8504'>Medium</span></td></tr><tr><td><strong>Restore testing</strong><br><span class='why'>Backups &amp; Recovery</span></td><td>Tested once in the last year</td><td>8</td><td><span class='pill' style='background:#ca8504'>Medium</span></td></tr><tr><td><strong>Incident response plan</strong><br><span class='why'>Incident Response</span></td><td>Written, but never practiced</td><td>8</td><td><span class='pill' style='background:#ca8504'>Medium</span></td></tr><tr><td><strong>End-of-life software</strong><br><span class='why'>Patching &amp; Vulnerability Management</span></td><td>One or two systems, with a replacement planned</td><td>8</td><td><span class='pill' style='background:#ca8504'>Medium</span></td></tr><tr><td><strong>Phishing simulations</strong><br><span class='why'>Security Awareness Training</span></td><td>Once or twice a year</td><td>6</td><td><span class='pill' style='background:#ca8504'>Medium</span></td></tr></table>
+
+<h2>Remediation plan</h2>
+<h3>Next (30-90 days) <span class='delta'>risk index 6.8 → 4.4</span></h3><table><tr><th>#</th><th>Action</th><th>Effort</th><th>Cost</th><th>Risk ↓</th></tr><tr><td>1</td><td><span class='why'>Restore testing</span><br><strong>Run a test restore of one critical system every six months and record how long it takes.</strong><br><span class='why'>Many businesses only discover their backups are broken in the middle of an emergency.</span></td><td>Low</td><td title='Low cost'>$</td><td>−4</td></tr><tr><td>2</td><td><span class='why'>Phishing simulations</span><br><strong>Run quarterly phishing simulations and track the click and report rates over time.</strong><br><span class='why'>Practice makes phishing recognition a habit, and the results show where extra training is needed.</span></td><td>Low</td><td title='Low cost'>$</td><td>−3</td></tr></table><h3>Later (90+ days) <span class='delta'>risk index 4.4 → 0</span></h3><table><tr><th>#</th><th>Action</th><th>Effort</th><th>Cost</th><th>Risk ↓</th></tr><tr><td>3</td><td><span class='why'>Sensitive data access</span><br><strong>Restrict sensitive folders and systems to the roles that need them, and review who has access twice a year.</strong><br><span class='why'>Limiting access reduces how much data one compromised account or careless mistake can expose.</span></td><td>Medium</td><td title='Low cost'>$</td><td>−5</td></tr><tr><td>4</td><td><span class='why'>Incident response plan</span><br><strong>Write a two-page incident response plan covering who decides, who to call, and first steps, then walk through it once a year.</strong><br><span class='why'>Decisions made calmly in advance are faster and better than decisions made mid-crisis.</span></td><td>Medium</td><td title='Low cost'>$</td><td>−4</td></tr><tr><td>5</td><td><span class='why'>End-of-life software</span><br><strong>Identify all end-of-life systems and budget to replace or isolate them within the next year.</strong><br><span class='why'>Unsupported software no longer receives security fixes, so every new vulnerability stays open permanently.</span></td><td>High</td><td title='Significant cost'>$$$</td><td>−4</td></tr></table>
+
+<h2>Method</h2>
+<p class="why">Each control is scored 0-3 for maturity and mapped to NIST CSF 2.0. Likelihood (1-5) comes from maturity; impact (1-5) is set per control and raised by 1 for data-related controls when sensitive data is held. Risk = likelihood × impact (Low 1-5, Medium 6-11, High 12-19, Critical 20-25). The risk index scales total risk from 0 (every control strong) to 100 (every control missing). Actions are ranked by risk reduction ÷ effort.</p>
+</body></html>

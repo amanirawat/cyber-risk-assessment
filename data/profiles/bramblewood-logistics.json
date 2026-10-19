@@ -1,0 +1,17 @@
+{
+  "company": {
+    "name": "Bramblewood Logistics",
+    "industry": "Transportation & warehousing",
+    "employees": 48,
+    "handles_sensitive_data": false,
+    "description": "Fictional regional freight company with an outsourced IT provider. Some good basics in place, but uneven practices across the office and warehouse."
+  },
+  "answers": {
+    "AC1": 2, "AC2": 1, "AC3": 2, "AC4": 2,
+    "BK1": 3, "BK2": 2, "BK3": 1,
+    "PT1": 2, "PT2": 1, "PT3": 2, "PT4": 2,
+    "TR1": 2, "TR2": 1, "TR3": 2,
+    "IR1": 1, "IR2": 2,
+    "DP1": 2, "DP2": 2
+  }
+}
